@@ -1,15 +1,17 @@
-import { defineConfig } from 'vite'
-
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import svgLoader from 'vite-svg-loader';
 
 export default defineConfig({
-    root: 'src',
+    plugins: [ vue(), svgLoader() ],
+    root: 'client',
+    resolve: {
+        alias: {
+            '@': '/clietn/src',
+        },
+    },
     build: {
-        outDir: '../dist',
-        rollupOptions: {
-            input: {
-                computer: 'src/computer.html',
-                phone: 'src/phone.html'
-            }
-        }
-    }
-})
+        outDir: resolve(process.cwd(), 'dist'),
+    },
+});
