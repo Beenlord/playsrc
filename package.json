@@ -2,18 +2,25 @@
   "name": "playsrc",
   "version": "1.0.0",
   "type": "module",
+  "main": "server/index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "start": "node server.js"
+    "dev:server": "nodemon",
+    "dev:vite": "vite",
+    "build:vite": "vite build",
+    "start": "node ."
   },
   "dependencies": {
+    "consola": "^3.0.0-5",
+    "dotenv": "^17.2.3",
     "express": "^4.18.2",
+    "http-proxy-middleware": "^3.0.5",
+    "node-fetch": "^3.3.2",
     "qrcode": "^1.5.4",
     "uuid": "^9.0.0",
     "ws": "^8.13.0"
   },
   "devDependencies": {
+    "nodemon": "^3.1.10",
     "vite": "^5.0.0"
   }
 }

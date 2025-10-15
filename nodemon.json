@@ -1,0 +1,6 @@
+{
+  "watch": ["server", ".env.development"],
+  "verbose": false,
+  "ignore": ["**/dist/**", "/src/**"],
+  "exec": "node server/index.js"
+}
