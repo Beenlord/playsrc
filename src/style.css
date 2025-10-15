@@ -1,0 +1,23 @@
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    padding: 20px;
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+video {
+    width: 100%;
+    background: #000;
+}
+
+#qr img {
+    max-width: 320px;
+}
+
+button {
+    padding: 8px 12px;
+    margin-top: 8px;
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Computer — Video Receiver</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Computer — Receiver</h1>
+        <div id="qr-area">
+            <button id="new-session">Create new session & show QR</button>
+            <div id="qr"></div>
+            <p id="session-info"></p>
+        </div>
+
+
+        <h2>Incoming stream</h2>
+        <video id="remoteVideo" autoplay playsinline controls></video>
+    </main>
+
+
+    <script type="module" src="/main_computer.js" defer></script>
+</body>
+
+</html>
