@@ -1,0 +1,6 @@
+services:
+
+  app:
+    build: backup
+    ports:
+      - "4080:80"

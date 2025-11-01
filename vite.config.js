@@ -1,17 +1,28 @@
-import { resolve } from 'path';
-import { defineConfig } from 'vite';
+import { resolve } from 'node:path';
+import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import svgLoader from 'vite-svg-loader';
 
-export default defineConfig({
-    plugins: [ vue(), svgLoader() ],
-    root: 'client',
-    resolve: {
-        alias: {
-            '@': '/clietn/src',
+export default defineConfig(({ mode }) => {
+    const ENV = loadEnv(mode, process.cwd(), '');
+
+    return {
+        plugins: [
+            vue(),
+        ],
+
+        resolve: {
+            alias: {
+                '@': '/client',
+            },
         },
-    },
-    build: {
-        outDir: resolve(process.cwd(), 'dist'),
-    },
+
+        server: {
+            port: ENV.VITE_PORT || 3001,
+            host: ENV.VITE_HOST || 'localhost',
+        },
+
+        build: {
+            outDir: resolve(process.cwd(), 'public/build'),
+        },
+    };
 });
