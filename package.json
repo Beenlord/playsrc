@@ -14,9 +14,13 @@
     "vite": "^7.1.12"
   },
   "dependencies": {
+    "consola": "^3.4.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
     "pinia": "^3.0.3",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
-    "vue": "^3.5.22"
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3"
   }
 }

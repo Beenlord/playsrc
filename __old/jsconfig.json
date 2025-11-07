@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "baseUrl": "./backup/app",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "exclude": ["node_modules", "dist"]
-}

@@ -1,9 +1,0 @@
-.log
-.npm
-
-.idea
-.vscode
-
-node_modules
-cache
-dist

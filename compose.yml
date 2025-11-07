@@ -1,0 +1,37 @@
+name: "playsrc"
+
+services:
+
+  web:
+    build:
+      context: .
+      target: nginx
+    volumes:
+      - .:/var/www/html:ro
+    ports:
+      - "80:80"
+    networks:
+      - default
+
+  app:
+    build:
+      context: .
+      target: app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - default
+
+  redis:
+    image: redis:7
+    volumes:
+      - redis:/data
+    networks:
+      - default
+
+networks:
+  default:
+
+volumes:
+  redis:
