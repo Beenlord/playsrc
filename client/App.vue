@@ -1,8 +1,7 @@
 <template>
-  This is the vue app
-  <Button>
-    Выполнить клик
-  </Button>
+	<RouterLink to="/">Home page</RouterLink>
+	<RouterLink to="/example">Example page</RouterLink>
+	<RouterView />
 </template>
 
 <script setup>
