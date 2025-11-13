@@ -2,27 +2,26 @@ import { resolve } from 'node:path';
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
-export default defineConfig(({ mode }) => {
-    const ENV = loadEnv(mode, process.cwd(), '');
+import { viteConfig } from './config/viteConfig.js';
+import { resolveBuildPath } from './utils/path.js';
 
-    return {
-        plugins: [
-            vue(),
-        ],
+export default defineConfig({
+	plugins: [
+		vue(),
+	],
 
-        resolve: {
-            alias: {
-                '@': '/client',
-            },
-        },
+	resolve: {
+		alias: {
+			'@': '/client',
+		},
+	},
 
-        server: {
-            port: ENV.VITE_PORT || 3001,
-            host: ENV.VITE_HOST || 'localhost',
-        },
+	server: {
+		port: viteConfig.VITE_PORT,
+		host: viteConfig.VITE_HOST,
+	},
 
-        build: {
-            outDir: resolve(process.cwd(), 'public/build'),
-        },
-    };
+	build: {
+		outDir: resolveBuildPath(),
+	},
 });

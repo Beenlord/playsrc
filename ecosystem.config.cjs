@@ -2,7 +2,7 @@ module.exports = {
 	apps: [
 		{
 			name: 'playsrc',
-			script: 'server.js',
+			script: 'core.js',
 			exec_mode: 'cluster',
 			instances: 1,
 			env: {

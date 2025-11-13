@@ -1,4 +1,4 @@
-import config from '../helpers/config.js';
+import config from '../core/config.js';
 
 export const viteConfig = config({
 

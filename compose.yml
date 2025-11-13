@@ -1,4 +1,4 @@
-name: "playsrc"
+name: "${APP_NAME}"
 
 services:
 
@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/var/www/html:ro
     ports:
-      - "80:80"
+      - "${APP_PORT}:80"
     networks:
       - default
 
