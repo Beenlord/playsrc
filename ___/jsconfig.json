@@ -2,10 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./app/src/js/*"],
-      "~/*": ["./app/src/js/*"],
-      "@css/*": ["./app/src/css/*"],
-      "~css/*": ["./app/src/css/*"]
+      "@/*": ["./client/*"]
     },
     "target": "ES2020",
     "module": "ESNext",
@@ -19,10 +16,10 @@
     "skipLibCheck": true
   },
   "include": [
-    "app/src/js/**/*",
-    "app/src/css/**/*"
+		"app/resources/**/*"
   ],
   "exclude": [
-    "node_modules", "build"
+    "node_modules",
+    "build"
   ]
 }

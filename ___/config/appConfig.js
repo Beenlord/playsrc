@@ -1,4 +1,4 @@
-import config from '../helpers/config.js';
+import config from '../utils/config.js';
 
 export const appConfig = config({
 

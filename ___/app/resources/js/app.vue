@@ -6,7 +6,7 @@
 
 <script setup>
 import { inject, onMounted, onUnmounted } from 'vue';
-import Button from '@/Components/Button.vue';
+import Button from './Components/Button.vue';
 
 const emitter = inject('emitter');
 

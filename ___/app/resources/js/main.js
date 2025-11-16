@@ -1,12 +1,12 @@
 import {createApp} from 'vue';
 import {createPinia} from 'pinia';
-import {routerPlugin} from '@/plugins/router';
-import {emitterPlugin} from '@/plugins/emitter';
-import {socketPlugin} from '@/plugins/socket';
+import {routerPlugin} from './plugins/router.js';
+import {emitterPlugin} from './plugins/emitter.js';
+import {socketPlugin} from './plugins/socket.js';
 
-import App from '@/App.vue';
-import HomePage from '@/Pages/Home.vue';
-import ExamplePage from '@/Pages/Example.vue';
+import App from './App.vue';
+import HomePage from './Pages/Home.vue';
+import ExamplePage from './Pages/Example.vue';
 
 const app = createApp(App);
 const pinia = createPinia();

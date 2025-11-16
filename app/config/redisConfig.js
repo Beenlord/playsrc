@@ -1,15 +1,15 @@
-import config from '../helpers/config.js';
+import { defineConfig, loadEnv } from '#utils/config.js';
 
-export const redisConfig = config({
+export const redisConfig = defineConfig('redis', {
 
 	/* ==================================== */
 	/* =       Хост redis сервера         = */
 	/* ==================================== */
-	REDIS_HOST: '127.0.0.1',
+	host: loadEnv('REDIS_HOST', '127.0.0.1'),
 
 	/* ==================================== */
 	/* =       Порт redis сервера         = */
 	/* ==================================== */
-	REDIS_PORT: 6379,
+	port: loadEnv('REDIS_PORT', 6379),
 
 });
