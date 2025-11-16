@@ -1,5 +1,18 @@
+@use 'reset-css';
+@use 'fonts' as *;
+
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    font-family: 'Gilroy', 'Arial', Times;
+}
+
+html {
+    min-height: 100dvh;
+    overflow: hidden;
+    overflow-y: scroll;
+    font-size: 8px;
+}
+
+body {
+    width: 100vw;
+    font-size: 2rem;
 }
