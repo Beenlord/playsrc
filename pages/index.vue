@@ -1,6 +1,9 @@
 <template>
-  <div class="IndexPage">
-  </div>
+  <Page class="IndexPage">
+	  <UiCard>
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex sit unde vitae?</p>
+	  </UiCard>
+  </Page>
 </template>
 
 <script>
@@ -22,5 +25,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+.IndexPage {
+
+}
 </style>
