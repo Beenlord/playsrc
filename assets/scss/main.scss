@@ -1,8 +1,6 @@
-@import "reset-css";
-
-@import "staff/reset";
-@import "staff/fonts";
-@import "staff/vars";
+@forward "staff/reset";
+@forward "staff/fonts";
+@forward "staff/vars";
 
 :root {
   font-size: calc(((100vh / 667) + (100vw / 375)) * 4);
@@ -21,9 +19,5 @@ html {
 
   background: {
     color: var(--bg-color);
-    image: url("@/assets/images/paper.png");
-    size: 100vh;
-    position: center;
-    repeat: repeat;
   };
 }
