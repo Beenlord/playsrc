@@ -1,11 +1,10 @@
-@forward "staff/reset";
-@forward "staff/fonts";
-@forward "staff/vars";
-@forward "staff/anim";
+@import "staff/reset";
+@import "staff/fonts";
+@import "staff/vars";
+@import "staff/anim";
 
 :root {
 	font-size: 8px;
-	font-family: var(--ff-main), serif;
 }
 
 html,
@@ -15,12 +14,11 @@ body {
 }
 
 html {
-	font-size: var(--fs-s);
 	color: var(--text-primary);
 }
 
 body {
-	margin: 0;
+	font: var(--ft-main);
 
 	background: {
 		color: var(--bg-main);

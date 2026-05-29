@@ -24,10 +24,8 @@ export default {
 	],
 
 	plugins: [
-		{
-			src: '@/plugins/socket.js',
-			ssr: false,
-		},
+		{ src: '@/plugins/socket.js', ssr: false },
+		{ src: '@/plugins/window.js', ssr: false },
 	],
 
 	css: [
