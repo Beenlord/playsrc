@@ -1,0 +1,37 @@
+:root {
+  --bg-color: #d6d6d0;
+
+  --txt-color: #222020;
+  --txt-color-second: #5f5b5b;
+  --txt-color-accent: #0c539d; // #FD3BB9;
+  --txt-color-current: #093f79;
+
+  --shadow: 3px 3px 0 3px rgba(34, 32, 32, 0.35);
+
+  --border: 1px solid #5f5b5b;
+  --border-active: 1px solid #093f79;
+
+  --outline: 2px solid transparent;
+  --outline-active: 2px solid #093f79;
+
+  --gap-s: 1rem; // 8px
+  --gap-m: 1.5rem; // 12px
+  --gap-l: 3rem; // 24px
+  --gap-xl: 4rem; // 32px
+
+  --ff-main: 'CormorantSC', Arial, Times;
+  --ff-title: 'CormorantSC', Arial, Times;
+  --ff-subtitle: 'ComforterBrush', Arial, Times;
+
+  --fs-s: 2rem; // 16px
+  --fs-m: 2.5rem; // 20px
+  --fs-l: 4rem; // 32px
+  --fs-xl: 5rem; // 48px
+
+  --fw-s: 300; // slim
+  --fw-m: 500; // normal
+  --fw-l: 700; // bold
+
+  --pg-width: 375px;
+  --pg-gap: 75px;
+}

@@ -1,0 +1,29 @@
+@import "reset-css";
+
+@import "staff/reset";
+@import "staff/fonts";
+@import "staff/vars";
+
+:root {
+  font-size: calc(((100vh / 667) + (100vw / 375)) * 4);
+  font-family: var(--ff-main), serif;
+}
+
+html,
+body {
+  font-size: var(--fs-s);
+  color: var(--txt-color);
+}
+
+html {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  background: {
+    color: var(--bg-color);
+    image: url("@/assets/images/paper.png");
+    size: 100vh;
+    position: center;
+    repeat: repeat;
+  };
+}

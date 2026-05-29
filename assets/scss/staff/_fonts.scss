@@ -1,0 +1,40 @@
+/* Nimbus */
+
+@font-face {
+	font-family: 'Nimbus';
+	src: url('@/assets/fonts/NimbusSansRound-Regular.eot');
+	src: local('Nimbus Sans Round Regular'), local('NimbusSansRound-Regular'),
+	url('@/assets/fonts/NimbusSansRound-Regular.eot?#iefix') format('embedded-opentype'),
+	url('@/assets/fonts/NimbusSansRound-Regular.woff2') format('woff2'),
+	url('@/assets/fonts/NimbusSansRound-Regular.woff') format('woff'),
+	url('@/assets/fonts/NimbusSansRound-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Nimbus';
+	src: url('@/assets/fonts/NimbusSansRound-Bold.eot');
+	src: local('Nimbus Sans Round Bold'), local('NimbusSansRound-Bold'),
+	url('@/assets/fonts/NimbusSansRound-Bold.eot?#iefix') format('embedded-opentype'),
+	url('@/assets/fonts/NimbusSansRound-Bold.woff2') format('woff2'),
+	url('@/assets/fonts/NimbusSansRound-Bold.woff') format('woff'),
+	url('@/assets/fonts/NimbusSansRound-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Nimbus';
+	src: url('@/assets/fonts/NimbusSansRound-RegularItalic.eot');
+	src: local('Nimbus Sans Round Regular Italic'), local('NimbusSansRound-RegularItalic'),
+	url('@/assets/fonts/NimbusSansRound-RegularItalic.eot?#iefix') format('embedded-opentype'),
+	url('@/assets/fonts/NimbusSansRound-RegularItalic.woff2') format('woff2'),
+	url('@/assets/fonts/NimbusSansRound-RegularItalic.woff') format('woff'),
+	url('@/assets/fonts/NimbusSansRound-RegularItalic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
