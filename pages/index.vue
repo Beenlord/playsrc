@@ -1,9 +1,9 @@
 <template>
-  <Page class="IndexPage">
+  <div class="IndexPage">
 	  <UiCard>
 		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex sit unde vitae?</p>
 	  </UiCard>
-  </Page>
+  </div>
 </template>
 
 <script>

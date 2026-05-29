@@ -22,14 +22,13 @@ html {
 body {
 	margin: 0;
 
-	background-color: var(--bg-main);
-	color: var(--text-primary);
-
-	background-image:
-		radial-gradient(circle at 20% 30%, #14223b 0%, transparent 50%),
-		radial-gradient(circle at 80% 70%, var(--bg-surface) 0%, transparent 50%);
-
-	background-size: 200% 200%;
+	background: {
+		color: var(--bg-main);
+		image:
+			radial-gradient(circle at 20% 30%, #14223b 0%, transparent 50%),
+			radial-gradient(circle at 80% 70%, var(--bg-surface) 0%, transparent 50%);
+		size: 200% 200%;
+	}
 
 	animation: auroraGlow 20s linear infinite;
 }

@@ -27,14 +27,19 @@
 	--ff-title: 'Nimbus', Arial, Times;
 	--ff-subtitle: 'Nimbus', Arial, Times;
 
-	--fs-s: 2rem; // 16px
-	--fs-m: 2.5rem; // 20px
+	--fs-s: 1.5rem; // 14px
+	--fs-m: 2rem; // 16px
 	--fs-l: 4rem; // 32px
-	--fs-xl: 5rem; // 48px
+	--fs-xl: 6rem; // 48px
 
 	--fw-s: 300; // slim
-	--fw-m: 500; // normal
-	--fw-l: 700; // bold
+	--fw-m: 300; // normal
+	--fw-l: 600; // bold
+
+	--ft-muted: var(--fw-s) var(--fs-s)/1.2 var(--ff-main);
+	--ft-main: var(--fw-m) var(--fs-m)/1.2 var(--ff-main);
+	--ft-title: var(--fw-l) var(--fs-xl)/1 var(--ff-main);
+	--ft-subtitle: var(--fw-l) var(--fs-l)/1 var(--ff-main);
 
 	--pg-width: 375px;
 	--pg-gap: 75px;
