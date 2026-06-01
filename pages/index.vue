@@ -1,6 +1,6 @@
 <template>
 	<div class="IndexPage">
-		<a :href="broadcasterUrl">{{ broadcasterUrl }}</a>
+		<a v-if="!broadcasterConnected" :href="broadcasterUrl">{{ broadcasterUrl }}</a>
 	</div>
 </template>
 
@@ -18,6 +18,9 @@ export default {
 		...mapGetters([
 			'uuid',
 		]),
+		...mapGetters({
+			broadcasterConnected: 'broadcaster/connected',
+		}),
 		broadcasterUrl() {
 			return this.$addr.joinOrigin('broadcaster', this.uuid);
 		},

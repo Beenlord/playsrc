@@ -11,4 +11,5 @@ export const actions = {
 };
 
 export const getters = {
+	connected: (state) => state.connected,
 };
