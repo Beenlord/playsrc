@@ -15,7 +15,9 @@ export default {
 			{ name: 'format-detection', content: 'telephone=no' },
 		],
 		link: [
-			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+			{ rel: 'icon', type: 'image/png', sizes: '16x16', href: '/icons8-retro-tv-16.png' },
+			{ rel: 'icon', type: 'image/png', sizes: '32x32', href: '/icons8-retro-tv-32.png' },
+			{ rel: 'icon', type: 'image/png', sizes: '96x96', href: '/icons8-retro-tv-96.png' },
 		],
 	},
 
@@ -34,10 +36,4 @@ export default {
 	],
 
 	components: true,
-
-	build: {
-		transpile: [
-			'uuid',
-		],
-	},
 };
