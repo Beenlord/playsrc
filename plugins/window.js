@@ -14,7 +14,7 @@ const windowStore = new Vue({
 			this.height = window.innerHeight;
 			this.dpr = window.devicePixelRatio || 1;
 		}
-	}
+	},
 });
 
 export default (ctx, inject) => {

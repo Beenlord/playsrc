@@ -1,7 +1,5 @@
 import SocketIo from 'socket.io';
 
-const receivers = new Map();
-
 export default function (key, value) {
 	this.nuxt.hook('render:before', (renderer) => {
 		this.nuxt.hook('listen', (server, { url, host, port }) => {
@@ -13,56 +11,66 @@ export default function (key, value) {
 			});
 
 			io.on('connection', async(client) => {
+				client.role = null;
+				client.roomId = null;
 
-				client
-					.on('auth', (req) => {
-						const { role, uuid } = req;
+				client.on('room:join', (req) => {
+					const { role, uuid } = req;
 
-						client.role = role;
+					if (!['receiver', 'broadcaster'].includes(role) || !uuid) {
+						return client.emit('room:error', 'Invalid role or UUID');
+					}
 
-						if (role === 'receiver') {
-							client.join(uuid);
-							client.roomId = uuid;
+					client.role = role;
+					client.roomId = uuid;
 
-							console.log('🚪 Room has been created.');
+					if (role === 'receiver') {
+						client.join(uuid);
+						console.log(`[Server] 📥 Receiver created room: ${uuid}`);
+
+						client.to(uuid).emit('peer:receiver:connected');
+					}
+
+					if (role === 'broadcaster') {
+						const room = io.sockets.adapter.rooms.get(uuid);
+
+						if (!room) {
+							console.warn(`[Server] ❌ Room ${uuid} doesn't exist yet.`);
+							return client.emit('room:error', 'Room not found');
 						}
 
-						if (role === 'broadcaster') {
-							const room = io.sockets.adapter.rooms.get(uuid);
-
-							if (!room) {
-								console.warn('🚪 The room doesn\'t exist.');
-								return;
-							}
-
-							if (room.size >= 2) {
-								console.warn('🚪 The room is overloaded.');
-								return;
-							}
-
-							client.roomId = uuid;
-							client.join(uuid);
-
-							console.log('🚪 You are joined to the room.');
-
-							// socket.to(roomId).emit("broadcaster-connected");
+						if (room.size >= 2) {
+							console.warn(`[Server] ❌ Room ${uuid} is full.`);
+							return client.emit('room:error', 'Room is full');
 						}
 
-						// client.roomId = uuid;
+						client.join(uuid);
+						console.log(`[Server] 📹 Broadcaster joined room: ${uuid}`);
 
-						// if (type === 'receiver') {
-						// 	const { uuid } = data;
-						// } else
-						// if (type === 'broadcaster') {
-						// 	const { uuid } = data;
-						// } else {
-						// 	client.emit('auth', {
-						// 		status: false,
-						// 	});
-						// }
-					})
-					.on('disconnect', () => {
-					});
+						client.to(uuid).emit('peer:broadcaster:connected');
+					}
+				});
+
+				client.on('disconnect', async () => {
+					if (!client.roomId || !client.role) return;
+
+					const { role, roomId } = client;
+
+					console.log(`[Server] 🔌 ${role} disconnected from room ${roomId}`);
+
+					if (role === 'broadcaster') {
+						client.to(roomId).emit('peer:broadcaster:disconnected');
+					} else
+					if (role === 'receiver') {
+						client.to(roomId).emit('peer:receiver:disconnected');
+
+						const socketsInRoom = await io.in(roomId).fetchSockets();
+						for (const targetSocket of socketsInRoom) {
+							targetSocket.emit('room:error', 'Receiver disconnected. Room closed.');
+							targetSocket.leave(roomId);
+						}
+					}
+				});
 			});
 
 			this.nuxt.hook('close', () => {

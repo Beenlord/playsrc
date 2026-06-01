@@ -10,13 +10,21 @@ export default function({ store }, inject) {
 	Vue.use(new VueSocketIo({
 		debug: true,
 		connection,
+		vuex: {
+			store,
+			actionPrefix: 'socket:',
+			mutationPrefix: 'socket:'
+		},
 	}));
 
-	const socketAuth = (role, data = {}) => {
-		connection.emit('auth', {
-			...data, role, uuid: data?.uuid ?? null,
-		});
-	}
+	const socketAuth = {
+		roomJoin(role, uuid) {
+			connection.emit('room:join', {
+				role: role ?? null,
+				uuid: uuid ?? null,
+			});
+		},
+	};
 
-	inject('auth', socketAuth);
+	inject('socketAuth', socketAuth);
 };

@@ -24,6 +24,7 @@ export default {
 	],
 
 	plugins: [
+		{ src: '@/plugins/addr.js', ssr: true },
 		{ src: '@/plugins/socket.js', ssr: false },
 		{ src: '@/plugins/window.js', ssr: false },
 	],

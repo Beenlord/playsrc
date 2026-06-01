@@ -1,29 +1,26 @@
 <template>
 	<div class="IndexPage">
-		<IcoLogo />
-		<UiSurface class="qr-container">
-			<QrCode class="qr-container__qr" url="https://www.ya.ru" />
-		</UiSurface>
+		<a :href="broadcasterUrl">{{ broadcasterUrl }}</a>
 	</div>
 </template>
 
 <script>
-import { hex } from '@/utils/hex.js';
+import { mapGetters } from 'vuex';
+import { v4 as hex } from 'uuid';
 
 export default {
-	sockets: {
-		connect() {
-			console.log('🙏 Socket connected');
-
-			this.$auth('receiver', {
-				uuid: hex(),
-			});
+	asyncData({ store }) {
+		const uuid = hex();
+		store.commit('setRole', 'receiver');
+		store.commit('setUuid', uuid);
+	},
+	computed: {
+		...mapGetters([
+			'uuid',
+		]),
+		broadcasterUrl() {
+			return this.$addr.joinOrigin('broadcaster', this.uuid);
 		},
-	},
-	data() {
-		return {};
-	},
-	beforeDestroy() {
 	},
 	methods: {},
 };
