@@ -8,11 +8,16 @@
 </template>
 
 <script>
+import { hex } from '@/utils/hex.js';
 
 export default {
 	sockets: {
-		connect: function () {
+		connect() {
 			console.log('🙏 Socket connected');
+
+			this.$auth('receiver', {
+				uuid: hex(),
+			});
 		},
 	},
 	data() {

@@ -1,5 +1,4 @@
 import SocketIo from 'socket.io';
-import socket from "~/plugins/socket";
 
 const receivers = new Map();
 
@@ -19,11 +18,10 @@ export default function (key, value) {
 					.on('auth', (req) => {
 						const { role, uuid } = req;
 
-						// Запомнили комнату
 						client.role = role;
 
 						if (role === 'receiver') {
-							socket.join(uuid);
+							client.join(uuid);
 							client.roomId = uuid;
 
 							console.log('🚪 Room has been created.');
@@ -43,7 +41,7 @@ export default function (key, value) {
 							}
 
 							client.roomId = uuid;
-							socket.join(uuid);
+							client.join(uuid);
 
 							console.log('🚪 You are joined to the room.');
 

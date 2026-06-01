@@ -20,7 +20,7 @@ export default {
 	},
 
 	modules: [
-		'@/modules/socket.js',
+		'@/modules/socket/index.js',
 	],
 
 	plugins: [
@@ -33,4 +33,10 @@ export default {
 	],
 
 	components: true,
+
+	build: {
+		transpile: [
+			'uuid',
+		],
+	},
 };
