@@ -39,7 +39,7 @@ export default function (key, value) {
 							return client.emit('room:error', 'Room not found');
 						}
 
-						if (room.size >= 2) {
+						if (room.size >= 5) {
 							console.warn(`[Server] ❌ Room ${uuid} is full.`);
 							return client.emit('room:error', 'Room is full');
 						}
@@ -49,6 +49,24 @@ export default function (key, value) {
 
 						client.to(uuid).emit('peer:broadcaster:connected');
 					}
+				});
+
+				client.on('webrtc:signal:offer', (offer) => {
+					if (!client.roomId) return;
+					console.log(`[WebRTC] 📄 Forwarding OFFER in room: ${client.roomId} from ${client.role}`);
+					client.to(client.roomId).emit('webrtc:signal:offer', offer);
+				});
+
+				client.on('webrtc:signal:answer', (answer) => {
+					if (!client.roomId) return;
+					console.log(`[WebRTC] ✉️ Forwarding ANSWER in room: ${client.roomId} from ${client.role}`);
+					client.to(client.roomId).emit('webrtc:signal:answer', answer);
+				});
+
+				client.on('webrtc:signal:candidate', (candidate) => {
+					if (!client.roomId) return;
+					console.log(`[WebRTC] 🌐 Forwarding ICE CANDIDATE in room: ${client.roomId} from ${client.role}`);
+					client.to(client.roomId).emit('webrtc:signal:candidate', candidate);
 				});
 
 				client.on('disconnect', async () => {
